@@ -32,3 +32,6 @@ Route::group(['as' => 'brand-', 'prefix' => 'brand'], function () {
 	Route::delete('/{id}', 'BrandController@delete')->name('delete');
 	Route::put('/{id}/restore', 'BrandController@restore')->name('restore');
 });
+
+Route::put('/category/{id}/restore', 'CategoryController@restore')->name('category.restore');
+Route::resource('category', 'CategoryController');

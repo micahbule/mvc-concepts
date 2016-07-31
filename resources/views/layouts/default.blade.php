@@ -29,7 +29,7 @@
 							<li role="separator" class="divider"></li>
 							<li><a href="#">Products</a></li>
 							<li><a href="{{ route('brand-index') }}">Brands</a></li>
-							<li><a href="#">Categories</a></li>
+							<li><a href="{{ route('category.index') }}">Categories</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

@@ -1,7 +1,7 @@
 @extends('layouts/default')
 
 @section('content')
-	<a href="{{ route('branch-index') }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Brands</a>
+	<a href="{{ route('brand-index') }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Brands</a>
 	<h1>{{ isset($brand) ? 'Edit' : 'New' }} Brand</h1>
 	<hr>
 	{{ Form::open(array("method" => (isset($brand) ? "PUT" : "POST"))) }}
