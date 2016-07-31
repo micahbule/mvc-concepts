@@ -22,3 +22,13 @@ Route::get('/branch/{id}', 'BranchController@edit')->name('branch-edit');
 Route::put('/branch/{id}', 'BranchController@saveEdit');
 Route::get('/branch/{id}/delete', 'BranchController@delete')->name('branch-delete');
 Route::get('/branch/{id}/restore', 'BranchController@restore')->name('branch-restore');
+
+Route::group(['as' => 'brand-', 'prefix' => 'brand'], function () {
+	Route::get('/', 'BrandController@index')->name('index');
+	Route::get('/new', 'BrandController@create')->name('new');
+	Route::post('/new', 'BrandController@saveCreate');
+	Route::get('/{id}', 'BrandController@edit')->name('edit');
+	Route::put('/{id}', 'BrandController@saveEdit');
+	Route::get('/{id}/delete', 'BrandController@delete')->name('delete');
+	Route::get('/{id}/restore', 'BrandController@restore')->name('restore');
+});
