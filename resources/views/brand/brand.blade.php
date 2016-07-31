@@ -37,12 +37,12 @@
 					<td>{{ $brand->updated_at }}</td>
 					<td>{{ $brand->deleted_at }}</td>
 					<td>
-						@if(isset($brand->deleted_at))
-							<a href="{{ route('brand-restore', ['id' => $brand->id]) }}" title="Restore Item"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
-						@else
-							<a href="{{ route('brand-edit', ['id' => $brand->id]) }}" title="Edit Item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a href="{{ route('brand-delete', ['id' => $brand->id]) }}" title="Delete Item"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-						@endif
+						{{ Form::open(array('url' => route(isset($brand->deleted_at) ? 'brand-restore' : 'brand-delete', ['id' => $brand->id]), 'method' => isset($brand->deleted_at) ? 'PUT' : 'DELETE')) }}
+							@if(!isset($brand->deleted_at))
+								<a href="{{ route('brand-edit', ['id' => $brand->id]) }}" title="Edit Item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+							@endif
+							<a href="#" class="submit-icon"><span class="{{ 'glyphicon '.(isset($brand->deleted_at) ? 'glyphicon-repeat' : 'glyphicon-remove') }}" aria-hidden="true"></span></a>
+						{{ Form::close() }}
 					</td>
 				</tr>
 			@endforeach
@@ -86,6 +86,16 @@
 			});
 
 			table.draw();
+
+			table.on('draw.dt', function () {
+				$('.submit-icon').on('click', function () {
+					$(this).closest('form').submit();
+				});
+			});
+
+			$('.submit-icon').on('click', function () {
+				$(this).closest('form').submit();
+			});
 		});
 	</script>
 @stop

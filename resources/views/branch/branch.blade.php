@@ -39,12 +39,12 @@
 					<td>{{ $branch->updated_at }}</td>
 					<td>{{ $branch->deleted_at }}</td>
 					<td>
-						@if(isset($branch->deleted_at))
-							<a href="{{ route('branch-restore', ['id' => $branch->id]) }}" title="Restore Item"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
-						@else
-							<a href="{{ route('branch-edit', ['id' => $branch->id]) }}" title="Edit Item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a href="{{ route('branch-delete', ['id' => $branch->id]) }}" title="Delete Item"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-						@endif
+						{{ Form::open(array('url' => route(isset($branch->deleted_at) ? 'branch-restore' : 'branch-delete', ['id' => $branch->id]), 'method' => isset($branch->deleted_at) ? 'PUT' : 'DELETE')) }}
+							@if(!isset($branch->deleted_at))
+								<a href="{{ route('branch-edit', ['id' => $branch->id]) }}" title="Edit Item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+							@endif
+							<a href="#" class="submit-icon"><span class="{{ 'glyphicon '.(isset($branch->deleted_at) ? 'glyphicon-repeat' : 'glyphicon-remove') }}" aria-hidden="true"></span></a>
+						{{ Form::close() }}
 					</td>
 				</tr>
 			@endforeach
@@ -88,6 +88,16 @@
 			});
 
 			table.draw();
+
+			table.on('draw.dt', function () {
+				$('.submit-icon').on('click', function () {
+					$(this).closest('form').submit();
+				});
+			});
+
+			$('.submit-icon').on('click', function () {
+				$(this).closest('form').submit();
+			});
 		});
 	</script>
 @stop

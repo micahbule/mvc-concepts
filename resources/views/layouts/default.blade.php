@@ -73,7 +73,7 @@
 		@yield('content')
 	</div>
 	<script src="/js/jquery.min.js"></script>
-	<script src="/js/all.js"></script>
+	<script src="/js/app.js"></script>
 	<script src="/js/jquery.dataTables.js"></script>
 	<script src="/js/dataTables.bootstrap.js"></script>
 	@yield('scripts')
