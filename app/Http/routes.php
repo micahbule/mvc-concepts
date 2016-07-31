@@ -30,5 +30,5 @@ Route::group(['as' => 'brand-', 'prefix' => 'brand'], function () {
 	Route::get('/{id}', 'BrandController@edit')->name('edit');
 	Route::put('/{id}', 'BrandController@saveEdit');
 	Route::delete('/{id}', 'BrandController@delete')->name('delete');
-	Route::get('/{id}/restore', 'BrandController@restore')->name('restore');
+	Route::put('/{id}/restore', 'BrandController@restore')->name('restore');
 });
