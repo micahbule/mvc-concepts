@@ -45,3 +45,11 @@ Route::get('/generate', function () {
 	$snappy->generateFromHtml($htmlPdf, '/tmp/testing.pdf');
 	return $htmlPdf;
 });
+
+Route::get('/generate-dom', function () {
+	$pdf = App::make('dompdf.wrapper');
+	$htmlPdf = file_get_contents(base_path('app/Http/test.html'));
+	// dd($htmlPdf);
+	$pdf->loadHTML($htmlPdf);
+	return $pdf->stream();
+});
