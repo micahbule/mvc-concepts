@@ -11,6 +11,8 @@
 |
 */
 
+use App\Product;
+
 Route::get('/', function () {
     return view('home');
 });
@@ -35,3 +37,11 @@ Route::group(['as' => 'brand-', 'prefix' => 'brand'], function () {
 
 Route::put('/category/{id}/restore', 'CategoryController@restore')->name('category.restore');
 Route::resource('category', 'CategoryController');
+// Route::resource('product', 'ProductController');
+
+Route::get('/generate', function () {
+	$snappy = App::make('snappy.pdf');
+	$htmlPdf = file_get_contents(base_path('app/Http/test.html'));
+	$snappy->generateFromHtml($htmlPdf, '/tmp/testing.pdf');
+	return $htmlPdf;
+});
