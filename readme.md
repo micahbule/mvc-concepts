@@ -1,27 +1,25 @@
-# Laravel PHP Framework
+# CRUD App Example
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+#### DISCLAIMER: This won't be a spoon-feeding guide. The hard way is the right way. Questions are allowed, however. :)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Requirements
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+1. Composer (https://getcomposer.org/)
+2. Git (https://git-scm.com/)
+3. NodeJS (https://nodejs.org/en/)
+4. Simple terminal/command-prompt knowledge (CMD is your new found friend)
+5. Patience (like a lot of it if you're a first timer in Web)
 
-## Official Documentation
+#### OS-Specifics
+If you're on Windows, XAMPP or WAMP is okay for your web stack, otherwise (ex. Mac or any Linux distro such as Ubuntu), you'll need to manually install PHP, MySQL, and a web server [Apache/nginx]
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Installation
+After installing all requirements mentioned above, you should first try to install a default Laravel app just so you know the requirements you've installed are working properly. To install a default Laravel app go to https://laravel.com/docs/5.2 and follow the installation guide.
 
-## Contributing
+Should you hit any problems, https://www.google.com.ph and http://stackoverflow.com/ should help you out, just type the right keywords to your issue.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+If you've successfully installed Laravel, you should be able to see a large "Laravel 5" on your browser. This should mean you've installed the optimal environment for a Laravel app. You're now ready to deploy this project.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+1. Clone this repo using Git. (If you don't know Git, go here http://rogerdudler.github.io/git-guide/; to clone this repo see "checkout a repository" section of the guide)
+2. After cloning, using the terminal/command-prompt, navigate to the project directory (should be a simple `cd` command) and install the dependencies by issuing a `composer install` command. **(NOTE: You'll need good internet connection for this step as it will download dependencies for the project)**
+3. After installing the dependencies, you'll need to configure your environment settings (ex. DB host, user, password, database name, etc.). Just copy the `.env.example` file, rename it to `.env` and fill out the fields for the database credentials. Also, run `php artisan key:generate` command in the terminal/command-prompt to generate a unique app key.
